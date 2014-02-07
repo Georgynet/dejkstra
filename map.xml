@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<map nodes="6" start="1" finish="5">
+	<node num="1">
+		<neighbor dist="2">2</neighbor>
+		<neighbor dist="4">3</neighbor>
+		<neighbor dist="50">4</neighbor>
+	</node>
+	<node num="2">
+		<neighbor dist="2">1</neighbor>
+		<neighbor dist="4">6</neighbor>
+	</node>
+	<node num="3">
+		<neighbor dist="4">1</neighbor>
+		<neighbor dist="3">5</neighbor>
+	</node>
+	<node num="4">
+		<neighbor dist="5">1</neighbor>
+		<neighbor dist="1">5</neighbor>
+		<neighbor dist="6">6</neighbor>
+	</node>
+	<node num="5">
+		<neighbor dist="3">3</neighbor>
+		<neighbor dist="1">4</neighbor>
+		<neighbor dist="2">6</neighbor>
+	</node>
+	<node num="6">
+		<neighbor dist="4">2</neighbor>
+		<neighbor dist="6">4</neighbor>
+		<neighbor dist="2">5</neighbor>
+	</node>
+</map>
