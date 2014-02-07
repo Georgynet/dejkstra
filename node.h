@@ -6,18 +6,18 @@
 
 class Node
 {
-	int number;				// порядковый номер
-	int dist;				// расстояние до текущей вершины
-	bool visited;			// метка посещенности (устанавливается после того как просмотрены все соседи ноды)
-	Node *prevNode;			// предыдущая нода
-	std::vector<Node*>neighbor;	// соседи ноды
-	std::vector<int>nbdist;	// растояние до соседней ноды
+	int number;				// РїРѕСЂСЏРґРєРѕРІС‹Р№ РЅРѕРјРµСЂ
+	int dist;				// СЂР°СЃСЃС‚РѕСЏРЅРёРµ РґРѕ С‚РµРєСѓС‰РµР№ РІРµСЂС€РёРЅС‹
+	bool visited;			// РјРµС‚РєР° РїРѕСЃРµС‰РµРЅРЅРѕСЃС‚Рё (СѓСЃС‚Р°РЅР°РІР»РёРІР°РµС‚СЃСЏ РїРѕСЃР»Рµ С‚РѕРіРѕ РєР°Рє РїСЂРѕСЃРјРѕС‚СЂРµРЅС‹ РІСЃРµ СЃРѕСЃРµРґРё РЅРѕРґС‹)
+	Node *prevNode;			// РїСЂРµРґС‹РґСѓС‰Р°СЏ РЅРѕРґР°
+	std::vector<Node*>neighbor;	// СЃРѕСЃРµРґРё РЅРѕРґС‹
+	std::vector<int>nbdist;	// СЂР°СЃС‚РѕСЏРЅРёРµ РґРѕ СЃРѕСЃРµРґРЅРµР№ РЅРѕРґС‹
 public:
 	Node(int number);
 	void addNeighbor(Node &nb, int d);
 	static int Node::getMinDist(std::vector<Node*>&vnode, int numNode);
 
-	// get- и set- методы
+	// get- Рё set- РјРµС‚РѕРґС‹
 	int getNumber(){ return number; }
 	int getDist(){ return dist; }
 	int getNbDist(int i){ return nbdist[i]; }

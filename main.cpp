@@ -13,17 +13,17 @@ int main()
 
 	std::vector<Node*>vnode;
 
-//:- чтение xml и создание карты соседей
+//:- С‡С‚РµРЅРёРµ xml Рё СЃРѕР·РґР°РЅРёРµ РєР°СЂС‚С‹ СЃРѕСЃРµРґРµР№
 	pugi::xml_document doc;
 	doc.load_file("map.xml");
 
-	// всего узлов
+	// РІСЃРµРіРѕ СѓР·Р»РѕРІ
 	pugi::xpath_node map = doc.select_single_node("/map");
 	int numNode = atoi(map.node().attribute("nodes").value());
 	int numStartNode = atoi(map.node().attribute("start").value())-1;
 	int numFinishNode = atoi(map.node().attribute("finish").value())-1;
 
-	// чтение xml
+	// С‡С‚РµРЅРёРµ xml
 	for(int i=1;i <= numNode;i++)
 	{
 		Node *temp = new Node(i);
@@ -32,7 +32,7 @@ int main()
 	
 	pugi::xpath_node_set tools = doc.select_nodes("/map/node");
 
-    // Формирование узлов с их соседями
+    // Р¤РѕСЂРјРёСЂРѕРІР°РЅРёРµ СѓР·Р»РѕРІ СЃ РёС… СЃРѕСЃРµРґСЏРјРё
     for (pugi::xpath_node_set::const_iterator it = tools.begin(); it != tools.end(); ++it)
     {
         pugi::xpath_node node = *it;
@@ -47,7 +47,7 @@ int main()
     }
 //:~
 
-//:- поиск кратчайшего пути
+//:- РїРѕРёСЃРє РєСЂР°С‚С‡Р°Р№С€РµРіРѕ РїСѓС‚Рё
 	vnode[numStartNode]->setDist(0);
 	for(;;)
 	{
@@ -61,13 +61,13 @@ int main()
 		}
 		vnode[i]->setVisited(true);
 		
-		// путь найден, выход из цикла
+		// РїСѓС‚СЊ РЅР°Р№РґРµРЅ, РІС‹С…РѕРґ РёР· С†РёРєР»Р°
 		if(i == numFinishNode)
 			break;
 	}
 //:~
 
-	// дистанция до конечной точки и запись в файл
+	// РґРёСЃС‚Р°РЅС†РёСЏ РґРѕ РєРѕРЅРµС‡РЅРѕР№ С‚РѕС‡РєРё Рё Р·Р°РїРёСЃСЊ РІ С„Р°Р№Р»
 	std::ofstream out("path.xml");
 	out << "<?xml version='1.0' encoding='UTF-8'>" << std::endl;
 	out << "<path distantion='" << vnode[numFinishNode]->getDist() << "'>" << std::endl;
